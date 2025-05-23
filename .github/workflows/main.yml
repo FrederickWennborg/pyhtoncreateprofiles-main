@@ -37,8 +37,15 @@ jobs:
       # lägg till Create JSON file
       - name: Run generate.py to create data.json
         run: python generate.py
-        
+
+      # lägg till Convert CSV to JSON file
+      - name: Run csvtojson.py to convert CSV to JSON
+        run: python csvtojson.py
+
       # Köra enhetstester     
+      - name: Run unit tests with pytest
+        run: pytest
+
       #python .\calculateTests.py 
       - name: Copy to dist
         run: |
