@@ -60,5 +60,28 @@
 
 
   <script type="module" src="script.js"></script>
+
+  <script>
+  fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      const tableBody = document.querySelector("tbody");
+      tableBody.innerHTML = ""; // Clear any static rows
+
+      data.forEach(customer => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${customer.name}</td>
+          <td>${customer.country}</td>
+          <td>${customer.birthyear}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    })
+    .catch(error => {
+      console.error("Error loading data:", error);
+    });
+</script>
+
   </body>
 </html>
