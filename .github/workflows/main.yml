@@ -23,7 +23,7 @@ jobs:
         run: echo Hello, world!      
 
       - name: My dummy calculateTestsPart2
-        run: python dummtest.py
+        run: python dummytest.py
 
       # lägg till create csv file (glöm inte pip install)
       # lägg till Create JSON file
