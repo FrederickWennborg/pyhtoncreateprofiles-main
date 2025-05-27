@@ -22,7 +22,7 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!      
 
-      - name: My dummy calculateTests
+      - name: My dummy calculateTestsPart2
         run: python dummtest.py
 
       # lägg till create csv file (glöm inte pip install)
