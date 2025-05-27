@@ -2,9 +2,9 @@ name: CICD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "Dummy-test-branch" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "Dummy-test-branch" ]
 permissions:
   id-token: write
   pages: write
@@ -22,7 +22,9 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!      
 
-        
+      - name: My dummy calculateTestsPart2
+        run: python dummytest.py
+
       # lägg till create csv file (glöm inte pip install)
       # lägg till Create JSON file
       # Köra enhetstester     
