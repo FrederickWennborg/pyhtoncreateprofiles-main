@@ -2,9 +2,9 @@ name: CICD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main","Distinction-(VG)-Requirements-branch" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main","Distinction-(VG)-Requirements-branch" ]
 permissions:
   id-token: write
   pages: write
@@ -22,10 +22,18 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!      
 
-        
       # lägg till create csv file (glöm inte pip install)
+      - name: Install Python dependencies
+        run: pip install --upgrade pip
+
       # lägg till Create JSON file
-      # Köra enhetstester     
+      - name: Run CSV to JSON conversion
+        run: python csvtojson.py
+
+      # Köra enhetstester
+      - name: Run CSV/JSON Unit Tests
+        run: python -m unittest csvtojsontests.py
+        
       #python .\calculateTests.py 
       - name: Copy to dist
         run: |
