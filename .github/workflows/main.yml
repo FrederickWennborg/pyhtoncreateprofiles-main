@@ -23,7 +23,7 @@ jobs:
         run: echo Hello, world!      
 
         
-      # lägg till create csv file (glöm inte pip install)
+   
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -37,7 +37,7 @@ jobs:
         run: python csvtojson.py
 
       - name: Run tests
-        run: pytest
+        run: pytest faker
 
       
       - name: Copy to dist
